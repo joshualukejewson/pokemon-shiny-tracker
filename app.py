@@ -24,11 +24,12 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         pokemon_name = request.form.get("pokemon-name")
+        pokemon = None
         if pokemon_name:
             pokemon = get_individual_pokemon_data(pokemon_name)
             if pokemon:
                 print(pokemon.name)
-        print("beans")
+                return render_template("index.html", pokemon=pokemon)
 
     return render_template("index.html")
 
