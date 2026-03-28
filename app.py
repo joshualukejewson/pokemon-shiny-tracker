@@ -22,6 +22,13 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    """Render the home page.
+
+    GET:  Renders the empty index template.
+    POST: Reads the 'pokemon-name' form field, fetches the Pokemon's data
+          from the PokeAPI, and re-renders the template with the result.
+          If the name is missing or not found, falls back to the empty template.
+    """
     if request.method == "POST":
         pokemon_name = request.form.get("pokemon-name")
         pokemon = None
