@@ -13,6 +13,8 @@ development server when run directly.
 """
 
 from flask import Flask, render_template, request
+from services.pokeapi import get_individual_pokemon_data
+from modules.pokemon import Pokemon
 
 # Create the Flask application instance
 app = Flask(__name__)
@@ -21,7 +23,13 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        print(request.form.get("pokemon-name"))
+        pokemon_name = request.form.get("pokemon-name")
+        if pokemon_name:
+            pokemon = get_individual_pokemon_data(pokemon_name)
+            if pokemon:
+                print(pokemon.name)
+        print("beans")
+
     return render_template("index.html")
 
 
