@@ -18,12 +18,12 @@ def get_individual_pokemon_data(name: str) -> Pokemon | None:
         is not found (non-200 response).
     """
 
-    response = requests.get(f"{POKEAPI_BASE}{name.lower()}")
+    poke_name = name.lower()
+    response = requests.get(f"{POKEAPI_BASE}{poke_name.lower()}")
     if response.status_code != 200:
         return None
     data = response.json()
     # Pokemon object build
-    poke_name = name.lower()
     poke_id = data["id"]
     nsprite = data["sprites"]["other"]["showdown"]["front_default"]
     ssprite = data["sprites"]["other"]["showdown"]["front_shiny"]
