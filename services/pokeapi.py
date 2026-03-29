@@ -1,4 +1,4 @@
-from modules.pokemon import Pokemon
+from models.pokemon import Pokemon
 import requests
 
 POKEAPI_BASE = "https://pokeapi.co/api/v2/pokemon/"
