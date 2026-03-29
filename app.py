@@ -14,7 +14,6 @@ development server when run directly.
 
 from flask import Flask, render_template, request
 from services.pokeapi import get_individual_pokemon_data
-from modules.pokemon import Pokemon
 
 # Create the Flask application instance
 app = Flask(__name__)
@@ -31,12 +30,11 @@ def index():
     """
     if request.method == "POST":
         pokemon_name = request.form.get("pokemon-name")
-        pokemon = None
+        pokemon_data = None
         if pokemon_name:
-            pokemon = get_individual_pokemon_data(pokemon_name)
-            if pokemon:
-                print(pokemon.name)
-                return render_template("index.html", pokemon=pokemon)
+            pokemon_data = get_individual_pokemon_data(pokemon_name)
+        if pokemon_data:
+            return render_template("index.html", pokemon=pokemon_data)
 
     return render_template("index.html")
 
