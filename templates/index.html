@@ -8,16 +8,19 @@
 		<h1>Pokemon Shiny Tracker</h1>
 		<p>Shiny tracking, odds calculator and collection hub.</p>
 
-		<div class="pokemon-card">
+
 			<form method="POST">
 				<label for="pokemon-name">Pokemon Name:</label><br>
 				<input type="text" name="pokemon-name"><br>
 				<button type="submit">Hunt</button>
-				<button type="button" name="encounter-button">+1 Encounter</button>
+				<button type="button" id="encounter-button">Increment</button>
+				<button type="button" id="reset-button">Reset</button>
 				<p id="encounters-count">0</p>
 			</form>
+		<div class="pokemon-card">
 			{% if pokemon %}
-				<img src={{pokemon.shiny_sprite}} alt="A beautiful sunset over the ocean" width="500" height="300">
+				<img src={{pokemon.shiny_sprite}} alt="A beautiful sunset over the ocean" width="80" height="80">
+				<img src={{pokemon.normal_sprite}} alt="A beautiful sunset over the ocean" width="80" height="80">
 			{% endif %}
 		</div>
 	</div>
