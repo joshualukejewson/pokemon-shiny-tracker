@@ -11,9 +11,10 @@
 		<div class="pokemon-card">
 			<form method="POST">
 				<label for="pokemon-name">Pokemon Name:</label><br>
-				<input type="text" id="pokemon-name" name="pokemon-name"><br>
+				<input type="text" name="pokemon-name"><br>
 				<button type="submit">Hunt</button>
 				<button type="button" name="encounter-button">+1 Encounter</button>
+				<p id="encounters-count">0</p>
 			</form>
 			{% if pokemon %}
 				<img src={{pokemon.shiny_sprite}} alt="A beautiful sunset over the ocean" width="500" height="300">
