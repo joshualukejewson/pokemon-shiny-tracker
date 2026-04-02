@@ -10,9 +10,39 @@ body {
 }
 
 .pokemon-card {
-	background-color: red;
+	background-color: gray;
+	border: 2px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+}
+#search-form {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+	gap: 8px;
+}
+
+.modify-buttons {
+	gap: 8px;
+	display: flex;
+	flex-direction: row;
+}
+
+.modify-buttons button {
+	width: 100px;
+	height: 30px;
+}
+
+#encounter-button {
+	background-color: rgb(26, 175, 26);
+	font-size: large;
+	font-weight: bold;
+}
+
+#decrement-button {
+	background-color: red;	
+	font-size: large;
+	font-weight: bold;
 }
