@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pokemon Shiny Tracker</h1>
+      <p>Shiny tracking, odds calculator and collection hub.</p>
+
+      <form id="search-form" method="POST">
+        <label for="pokemon-name">Pokemon Name:</label>
+        <input type="text" name="pokemon-name" />
+        <button type="submit">Search</button>
+      </form>
+      {% if pokemon %}
+      <div class="modify-buttons">
+        <button type="button" id="encounter-button">+</button>
+        <button type="button" id="decrement-button">-</button>
+      </div>
+      <br />
+      <button type="button" id="reset-button">Reset</button>
+      <p id="encounters-count">0</p>
+      <div class="pokemon-card">
+        <img
+          src="{{pokemon.shiny_sprite}}"
+          alt="A beautiful sunset over the ocean"
+          width="200"
+          height="200"
+        />
+        {% endif %}
+      </div>
+    </div>
+    <script src="static/script.js"></script>
+  </body>
+</html>
